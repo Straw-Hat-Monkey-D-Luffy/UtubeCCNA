@@ -1,0 +1,58 @@
+Internet Protocol
+
+Layer 4 TCP/IP
+
+ex dotted decimal representation.
+4 octets separated by a dot
+32 bit address.
+ip and gateway has to be on the same network.
+
+IP Address : 192.168.100.255
+Subnet Mask: 255.255.255.0
+Gateway	   : 192.168.100.1
+
+network part -- 192.168.100
+host -- 255
+
+Table
+128 64 32 16 8 4 2 1
+
+4 octet -- 5 Classes -- 0-255 -- 32bits --  Host/Net
+
+class A:	1-126 
+class B:	128-191
+class C:	192-223
+class D:	224-239 -- use for multi-cast
+class E:	240-255 -- reserve for experimental puposes.
+
+127 --  loopback IP address
+
+Subnet Mask is decided by the class
+class C - 192.168.100.255 /24
+	- 255.255.255.0
+	- 11111111.11111111.11111111.00000000
+        - 192.168.100.1
+
+Network ID (First) : 192.168.100.0
+Valid IP address start : 192.168.100.1
+Valid IP address end: 192.168.100.254
+Broadcast ID (last) : 192.168.100.255
+
+254 Rooms/Hosts
+2^8-2 (8 is the number of '0's)
+
+class B
+172.123.100.255 /16
+255.255.0.0
+172.123.1.225
+
+2^16-2 = 65,534 rooms/host
+
+class A
+100.228.111.225 /8
+255.0.0.0
+100.101.123.1
+
+
+2^24-2 = 2,097,150
+

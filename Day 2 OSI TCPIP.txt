@@ -1,0 +1,69 @@
+OSI - Open System Interconennect
+
+7. Application
+6. Presentation
+5. Session
+4. Transport
+3. Network
+2. Data-Link Layer
+1. Physical
+
+TCP-IP Model
+	
+4. Application   -- 7 6 5
+3. Transport -- 4
+2. Internet -- 3
+1. Network Inerface  -- 2 1
+
+7. Application - point of contact for all of the " Network aware" applications.
+		ex. FTP, TFTP, SNMP, DNS,HTTP.
+
+6. Presentation - "generify" data, encryption services.
+	     - data converion, image , word 
+
+5. Session -  creates and maintains sessions.
+	- ex telnet and IE , seperates two sessions and maintain thems.
+	- maintain different sessions.
+
+layer 1 2 3 4 are critical, 5 6 7  layers are not so critical.
+
+4. Transport - DATA Unit : Segment
+	     - reliable - TCP(transmission Control Protocol)
+	     - unreliable UPP(User Datagram Protocol)
+	     - create a Port number
+	     - each segments adds its own header to creat encapsulations
+	     - UDP is faster, less overhead, realtime appication
+	     - relaible needs to get acknowledgement for every segment that has been recieve.
+	     - port number is a number that is attached with IP address to identify which 
+	     to create a socket.
+	     - socket is nothing but an ip address and port number.
+	     - socket will be now send to the layer 3 Network.
+             - also creat source port number.
+
+3. Network - Data Unit: Packet
+	   - IP Addressing Find the best path / Logical addressing
+           
+2. Data-link - Data Unit : Frame
+	     - MAC Addressing 
+	     - Error Checking
+	     - hardware addressing
+	     - burn in address/ it cannot be change
+             - CRC Cyclic Redundancy check
+             - parity check
+
+1. Physical - DATA unit : Bit
+	    - Actual Data Transfer
+	    - check cables 
+
+Data Sender
+4. Transport : (TH : seg1)( TH " seg2)
+3. Network : packet(NH : TH: seg1)
+2. data link : frame(DH:(packet))
+1. 0101010101010
+
+Data reciever
+1. 
+2. dh:nh:th: seg
+3. nh:th: seg
+4. th: seg1 th: seg2 --  will wait until it gets all the segment
+			combines
