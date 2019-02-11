@@ -1,0 +1,169 @@
+Subnetting - nothing but breaking down a large network
+		and treating them as separate networks.
+		
+		2 types of IP address
+		1.private - cannot go to the internet.
+				  - can only travel on local networks
+				  
+			Class A
+			10.0.0.0 - 10.255.255.255]
+				16,777,216 IP addresses
+				
+			Class B
+			172.16.0.0 - 172.31.255.255
+				1,048,576 IP addresses
+				
+			Class C
+			192.168.0.0 - 192.168.255.255
+				65,536 IP addresses
+				
+		2.public
+
+Class C 
+
+	IP address : 192.168.100.255
+	Subnet Mask : 255.255.255.0
+	
+	2^8-2 (8 zeros on subnet mask)
+	254 host 
+	
+	Network ID : 192.168.100.0
+	Broadcast ID : 192.168.100.255
+\-----------------------------------------------------------	
+Subnetting
+
+Ip Address : 192.168.100.225
+Subnet Mask: 255.255.255.0
+- Break the network into 2 , creates 2 subnets
+- to break a network into 2 we barrow 1 bit
+- get the place value. 128 64 32 16 8 4 2 1
+- each of the subnet has a  block size in the pie has a 128
+- 128-2 = 126 host 1 network ID and 1 Broadcast ID
+
+
+Whenever you do subnetting youre going from Class C to Classless.
+
+The minute you said subnetting we go into something called Classless
+
+Whenever you see /24+, / notation it is nothing but CIDR notation
+
+CIDR - Classless Inter-Domain Routing.
+
+we will barrow 1 bit from the host example 
+11111111.11111111.11111111.10000000 - SM 1's r network
+2^7 - 2 = 126 host
+
+Network ID 1 = 192.168.100.0 (NetID 1 always .0)
+Broadcast ID 1 = 192.168.100.127 (128 - 1)
+
+Network ID 2 = 192.168.100.128 (128 is the place value of 10000000)
+Broadcast ID 2 = 192.168.100.255
+
+Subnetting is nothing but barrowing a bit from your host part
+and creat a network. and now this is /25 network
+
+------------------------------------------------------
+ another example
+ /24+
+ IP address : 192.168.100.225
+ Subnet Mask: 255.255.255.192
+ Binary: 11111111.11111111.11111111.11000000
+ 
+ 2^6-2 = 62 host
+ - each subnet has 64 as the block size including 
+ netID and broadcast ID
+ - creates 4 subnets
+ 
+ network ID1 : 192.168.100.0
+ broadcast ID1 : 192.168.100.63
+ 
+  network ID2 : 192.168.100.64
+ broadcast ID2 : 192.168.100.127
+ 
+  network ID3 : 192.168.100.128
+ broadcast ID3 : 192.168.100.191
+ 
+  network ID3 : 192.168.100.192
+ broadcast ID3 : 192.168.100.255
+ 
+ /26
+-------------------------------------------------------
+Exercise1
+
+Requirements
+1. Create 3 sub-networks
+2. Use Class C IP address: 192.168.1.0
+3. Determine the Network ID and Broadcast ID of all subnets.
+
+Solution
+- Can only break into 2 or 4 networks
+- lets break it into 4 
+- we need to barrow 2 bits and the last bit is 64,
+therefore we know that each of the subnets has a size of 64.
+- 64 -2 is 62 valid host on each subnets.
+
+NetworkID1 : 192.168.1.0 /26
+broadcastID1: 192.168.1.63 /26
+
+NetworkID2 : 192.168.1.64 /26 (+64)
+broadcast ID2 : 192.168.1.127 /26
+
+NetworkID3 : 192.168.1.128 /26 (+64)
+broadcast ID3 : 192.168.1.191 /26
+
+NetworkID1 : 192.168.1.192 /26 (+64)
+broadcast ID2 : 192.168.1.255 /26
+
+----------------------------------------------------
+exercise 2
+
+Question 
+Find the Network ID and Broadcast ID of this IP Address
+192.168.225.212 /27
+
+
+Solution
+32 64 96 128 160 192 224 
+network 192.168.225.192 /27
+broadcast  192.168.225.223 /27
+
+
+-----------------------------------------------------
+VLSM - Variable Length Subnet Mask
+
+Requirements
+1. Design a network with 3 Networks: Marketing, Sales, Management
+2. Marketing requires 60 computers; 
+	Sales requires 100 computers
+	Management 34 computers
+	
+Solutions
+	Host - numbers of computers
+	barrow 2 bits - 4 subnets - each has 62 host
+	break 1 part to 126
+	and the other 2 is 62 each
+	
+	Sales
+	Network ID: 192.168.1.0 /25
+	Broadcast ID : 192.168.1.127 /25
+	
+	Marketing
+	Network ID: 192.168.1.128 /26
+	Broadcast ID : 192.168.1.191 /26  (127+64)
+	
+	Management
+	Network ID : 192.168.1.192 /26
+	Broadcast: 192.168.1.255 /26
+
+
+
+
+
+
+
+
+
+
+
+	
+	
